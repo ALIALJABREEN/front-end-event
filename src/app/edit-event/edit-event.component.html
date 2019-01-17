@@ -1,0 +1,55 @@
+<app-nav-bar></app-nav-bar>
+<div style="background-color: white">
+  <H1 style="color: black">Edit Event</H1>
+  <div class="rounded" style="background-color: white; margin: 20px; padding: 20px">
+    <form novalidate [formGroup]="myForm">
+
+
+      <div class="form-group"style="font-weight: bold">
+        <label for="inputEventName"> Event Name</label>
+        <input type="event_name" class="form-control" id="inputEventName"  placeholder="Enter Event Name" name="event_name"
+               formControlName="event_name">
+      </div>
+
+
+      <div class="form-group"style="font-weight: bold">
+        <label for="inputCity">City</label>
+        <input type="city" class="form-control" id="inputCity" placeholder="Enter City"  name="city"
+               formControlName="city">
+      </div>
+
+
+      <div class="form-group"style="font-weight: bold">
+        <label for="inputDescription">description</label>
+        <input type="description" class="form-control" id="inputDescription"  placeholder="Enter Description" name="description"
+               formControlName="description">
+      </div>
+
+
+      <div class="form-group">
+        <label for="inputCapacity">capacity</label>
+        <input type="capacity" class="form-control" id="inputCapacity"  placeholder="Enter Capacity" name="capacity"
+               formControlName="capacity">
+      </div>
+
+      <div class="form-group"style="font-weight: bold">
+        <label for="inputTime">time</label>
+        <input type="time" class="form-control" id="inputTime"  placeholder="Enter Time" name="time"
+               formControlName="time">
+      </div>
+
+
+      <div class="form-group"style="font-weight: bold">
+        <label for="inputDate">date</label>
+        <input type="date" class="form-control" id="inputDate"  placeholder="Enter Date" name="date"
+               formControlName="date">
+      </div>
+
+      <button type="submit" class="btn btn-sample" (click)="onSubmit()" routerLink="/my-events">Submit</button>
+      <button type="submit" class="btn btn-sample"style="margin-right: 5px" (click)="deleteEvent()" routerLink="/my-events">delete</button>
+      <button type="submit" class="btn btn-sample"style="margin-right: 5px"  routerLink="/my-events">cancel</button>
+
+
+    </form>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Event Management</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li> <a class="nav-link" href="#"routerLink="/home">Home <span class="sr-only">(current)</span></a></li>
+          <li> <a class="nav-link" href="#"*ngIf="admin" routerLink="/users">Users List</a></li>
+          <li> <a class="nav-link" href="#"*ngIf="admin" routerLink="/event">All Events</a></li>
+          <li> <a class="nav-link" href="#"*ngIf="admin" routerLink="/nonactive-events"> Non Active Events</a></li>
+          <li> <a class="nav-link" href="#"routerLink="/active-events"> Active Events</a></li>
+          <li> <a class="nav-link" href="#"*ngIf="org" routerLink="/create-event">create Event</a></li>
+          <li> <a class="nav-link" href="#"*ngIf="org" routerLink="/my-events">My Events</a></li>
+          <li> <a class="nav-link" href="#"*ngIf="usr" routerLink="/ticket">My Ticket</a></li>
+          <li> <a class="nav-link" href="#"*ngIf="isLogged()" routerLink="/user-profile">My Profile</a></li>
+          <li> <a class="nav-link" href="#"*ngIf="!isLogged()" routerLink="/login">Login</a></li>
+          <li> <a class="nav-link" href="#"*ngIf="isLogged()"(click)="logout()" routerLink="/login">Logout</a></li>
+
+        </ul>
+        <!--<form class="form-inline my-2 my-lg-0">-->
+          <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+          <!--<button class="btn btn-outline-default my-2 my-sm-0" type="submit">Search</button>-->
+        <!--</form>-->
+      </div>
+    </nav>

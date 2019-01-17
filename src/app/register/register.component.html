@@ -1,0 +1,110 @@
+<app-nav-bar></app-nav-bar>
+<div style="background-color: white">
+  <H1 style="color: black">Register</H1>
+  <div class="rounded" style="background-color: white; margin: 20px; padding: 20px">
+  <form novalidate [formGroup]="myReactiveForm">
+
+
+    <div class="form-group" style="font-weight: bold">
+      <label for="inputUserName"> User Name</label>
+      <input type="userName" class="form-control" id="inputUserName"
+             placeholder="Enter Username" name="userName"
+             formControlName="userName">
+      <div *ngIf="myReactiveForm.controls.userName.invalid && myReactiveForm.controls.userName.dirty"style="color: red">
+        <h6>user name  must be more than 2 letters and less than 25 letters , do NOT have numbers or symbols </h6></div>
+      <div *ngIf="myReactiveForm.controls.userName.valid && myReactiveForm.controls.userName.dirty"style="color: green">Success</div>
+      <div *ngIf="erro" style="color: red">{{erro}} </div>
+      </div>
+
+
+
+      <div class="form-group" style="font-weight: bold">
+        <label for="inputPassword">Password</label>
+        <input type="password" class="form-control"
+               formControlName="password"
+               id="inputPassword" placeholder="Password must contain character and at least 8 numbers" name="password">
+        <div *ngIf="myReactiveForm.controls.password.invalid && myReactiveForm.controls.password.dirty"style="color: red">
+          <h6>password  must be more than 8 letters and less than 25 letters </h6></div>
+        <div *ngIf="myReactiveForm.controls.password.valid && myReactiveForm.controls.password.dirty"style="color: green">Success</div>
+
+      </div>
+    <div class="form-group" style="font-weight: bold">
+      <label for="inputEmail">Email address</label>
+      <input type="email" class="form-control" id="inputEmail"
+             placeholder="Enter email" name="email"
+             formControlName="email">
+      <div *ngIf="myReactiveForm.controls.email.invalid && myReactiveForm.controls.email.dirty"style="color: red">
+        <h6> Email must be like (example@example.com) </h6></div>
+      <div *ngIf="myReactiveForm.controls.email.valid && myReactiveForm.controls.email.dirty"style="color: green">Success<
+    </div>
+
+      <!--<div class="form-group">-->
+        <!--<label for="confirmPassword">Confirm Password</label>-->
+        <!--<input type="password" class="form-control"-->
+               <!--formControlName="confirm"-->
+               <!--id="confirmPassword" placeholder="Confirm Password" name="confirm">-->
+      <!--</div>-->
+
+
+        <div class="form-group" style="font-weight: bold">
+          <label for="selectGender">Gander</label>
+          <select class="form-control" id="selectGender" formControlName="gender" name="gender">
+            <option value="" disabled>Select gander</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+
+
+    <div class="form-group" style="font-weight: bold">
+      <label for="firstName">First Name </label>
+      <input type="text" class="form-control"
+             formControlName="firstName"
+             id="firstName" placeholder="Enter First Name" name="firstName">
+      <div *ngIf="myReactiveForm.controls.firstName.invalid && myReactiveForm.controls.firstName.dirty"style="color: red">
+        <h6>last name must be more than 2 letters and less than 10 letters , do NOT have numbers or symbols</h6></div>
+      <div *ngIf="myReactiveForm.controls.firstName.valid && myReactiveForm.controls.firstName.dirty"style="color: green">Success</div>
+
+    </div>
+
+
+    <div class="form-group" style="font-weight: bold">
+      <label for="lastName"> Last Name</label>
+      <input type="text" class="form-control"
+             formControlName="lastName"
+             id="lastName" placeholder="Enter Last Name" name="lastName">
+      <div *ngIf="myReactiveForm.controls.lastName.invalid && myReactiveForm.controls.lastName.dirty"style="color: red">
+        <h6>last name must be more than 2 letters and less than 15 letters , do NOT have numbers or symbols </h6></div>
+      <div *ngIf="myReactiveForm.controls.lastName.valid && myReactiveForm.controls.lastName.dirty"style="color: green">Success</div>
+      </div>
+
+
+
+
+    <div class="form-group" style="font-weight: bold">
+      <label for="mobileNumber">mobile Number</label>
+      <input type="number" class="form-control"
+             formControlName="mobileNumber"
+             id="mobileNumber" placeholder="Enter your mobile Number" name="mobileNumber">
+      <div *ngIf="myReactiveForm.controls.mobileNumber.invalid && myReactiveForm.controls.mobileNumber.dirty"style="color: red">
+        mobileNumber  must be 9 numbers </div>
+      <div *ngIf="myReactiveForm.controls.mobileNumber.valid && myReactiveForm.controls.mobileNumber.dirty"style="color: green">Success</div>
+
+    </div>
+
+    <div class="form-group" style="font-weight: bold">
+      <label for="selectRole">Role</label>
+      <select class="form-control" id="selectRole" formControlName="role" name="role">
+        <option value="" disabled>Select role</option>
+        <option value="ROLE_USER">user</option>
+        <option value="ROLE_ORGANIZER">orgenizer</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-sample" (click)="onSubmit()">Submit</button>
+
+
+</div>
+    </form>
+ </div>
+</div>

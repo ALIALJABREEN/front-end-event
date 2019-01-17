@@ -1,0 +1,76 @@
+<app-nav-bar></app-nav-bar>
+<div style="background-color: white">
+  <H1 style="color: black">Edit</H1>
+  <div class="rounded" style="background-color: white; margin: 20px; padding: 20px">
+    <form novalidate [formGroup]="myReactiveForm">
+
+
+      <div class="form-group">
+        <label for="inputUserName"> User Name</label>
+        <input type="userName" class="form-control" id="inputUserName"
+               placeholder="Enter Username" name="userName"
+               formControlName="userName">
+      </div>
+      <div class="form-group">
+        <label for="inputPassword">Password</label>
+        <input type="password" class="form-control"
+               formControlName="password"
+               id="inputPassword" placeholder="Password must contain character and at least 6 numbers" name="password">
+      </div>
+      <div class="form-group">
+        <label for="inputEmail">Email address</label>
+        <input type="email" class="form-control" id="inputEmail"
+               placeholder="Enter email" name="email"
+               formControlName="email">
+      </div>
+
+      <!--<div class="form-group">-->
+      <!--<label for="confirmPassword">Confirm Password</label>-->
+      <!--<input type="password" class="form-control"-->
+      <!--formControlName="confirm"-->
+      <!--id="confirmPassword" placeholder="Confirm Password" name="confirm">-->
+      <!--</div>-->
+
+
+      <div class="form-group">
+        <label for="selectGender">Gander</label>
+        <select class="form-control" id="selectGender" formControlName="gender" name="gender">
+          <option value="" disabled>Select gander</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+
+
+      <div class="form-group">
+        <label for="firstName">First Name </label>
+        <input type="text" class="form-control"
+               formControlName="firstName"
+               id="firstName" placeholder="Enter First Name" name="firstName">
+      </div>
+
+      <div class="form-group">
+        <label for="lastName"> Last Name</label>
+        <input type="text" class="form-control"
+               formControlName="lastName"
+               id="lastName" placeholder="Enter Last Name" name="lastName">
+      </div>
+      <div class="form-group">
+        <label for="mobileNumber">mobile Number</label>
+        <input type="number" class="form-control"
+               formControlName="mobileNumber"
+               id="mobileNumber" placeholder="Enter your mobile Number" name="mobileNumber">
+      </div>
+
+
+      <button type="submit" class="btn btn-sample"style="margin-right: 5px" (click)="onSubmit()">Submit</button>
+
+      <button type="submit" class="btn btn-danger"style="margin-right: 5px" (click)="deleteUser()">delete</button>
+
+      <button *ngIf="isAdmin()" type="submit" class="btn btn-sample"style="margin-right: 5px"  routerLink="/users">cancel</button>
+
+      <button *ngIf="isOrgenizer()||isUser()" type="submit" class="btn btn-sample"style="margin-right: 5px"  routerLink="/user-profile">cancel</button>
+
+    </form>
+  </div>
+</div>

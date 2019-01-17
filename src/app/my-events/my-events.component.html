@@ -1,0 +1,19 @@
+<app-nav-bar></app-nav-bar>
+<div>
+  <h2> My Events</h2>
+  <ul *ngFor="let event of event$"class="list-group-item" class="list-group">
+    <li class="list-group-item"> Event id :  {{event.event_id}}</li>
+    <li class="list-group-item"> Event Name :  {{event.event_name}}</li>
+    <li class="list-group-item"> City :  {{event.city}}</li>
+    <li class="list-group-item"> Description : {{event.description}}</li>
+    <li class="list-group-item"> Capacity : {{event.capacity}}</li>
+    <li class="list-group-item"> Date : {{event.date}}</li>
+    <li class="list-group-item"> Time : {{event.time}}</li>
+    <td>
+      <button (click)="getEvent(event)" [routerLink]="['/edit_event', event.event_id]" class="btn btn-sample"style="margin-right: 10px">Edit</button>
+      <button (click)="getEvent(event)" [routerLink]="['/events_ticket/', event.event_id]" class="btn btn-sample"style="margin-right: 10px">Tickets</button>
+
+    </td>
+  </ul>
+
+</div>

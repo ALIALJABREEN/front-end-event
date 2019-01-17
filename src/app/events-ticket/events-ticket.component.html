@@ -1,0 +1,21 @@
+<app-nav-bar></app-nav-bar>
+<div class="row">
+  <div  class="col-md-6">
+    <h2>Tickets Event </h2>
+    <ul  *ngFor="let ticket of tickets"class="alert">
+
+      <li class="list-group-item"> #{{ticket.ticket_id}}</li>
+      <li class="list-group-item"> Event name:{{ticket.event_name}}</li>
+      <li class="list-group-item"> Date :{{ticket.ticketdate}}</li>
+      <li class="list-group-item"> Time :{{ticket.tickettime}}</li>
+      <li class="list-group-item"> Comment :{{ticket.comment}}</li>
+      <li class="list-group-item"> Rate :{{ticket.rate}}</li>
+      <button  *ngIf="!isAttend(ticket.attend)" type="submit" class="btn btn-sample" (click)="attendEvent(ticket.ticket_id)">attend</button>
+    </ul>
+    <button type="submit" class="btn btn-sample" routerLink="/my-events">Back</button>
+
+
+  </div>
+
+
+</div>

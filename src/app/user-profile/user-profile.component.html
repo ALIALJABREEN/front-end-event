@@ -1,0 +1,16 @@
+<app-nav-bar></app-nav-bar>
+<div *ngIf="user">
+  <h2> Mu Profile</h2>
+  <ul class="list-group">
+    <li class="list-group-item"> First Name :{{user.firstName}}</li>
+    <li class="list-group-item"> Last Name : {{user.lastName}}</li>
+    <li class="list-group-item"> Email : {{user.email}}</li>
+    <li class="list-group-item"> Mobile Number : {{user.mobileNumber}}</li>
+    <li class="list-group-item"> Gender : {{user.gender}}</li>
+
+    <td>
+      <button [routerLink]="['/user', user.users_id]" class="btn btn-sample"style="margin-right: 10px">Edit</button>
+
+    </td>
+  </ul>
+</div>

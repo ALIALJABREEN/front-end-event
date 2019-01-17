@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+@import "assets/forms.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
+.btn-sample {
+  color: #FAF0F0;
+  background-color: #43485E;
+  border-color: #E4E3E8;
+}
+
+.btn-sample:hover,
+.btn-sample:focus,
+.btn-sample:active,
+.btn-sample.active,
+.open .dropdown-toggle.btn-sample {
+  color: #FAF0F0;
+  background-color: #51465E;
+  border-color: #E4E3E8;
+}
+
+.btn-sample:active,
+.btn-sample.active,
+.open .dropdown-toggle.btn-sample {
+  background-image: none;
+}
+
+.btn-sample.disabled,
+.btn-sample[disabled],
+fieldset[disabled] .btn-sample,
+.btn-sample.disabled:hover,
+.btn-sample[disabled]:hover,
+fieldset[disabled] .btn-sample:hover,
+.btn-sample.disabled:focus,
+.btn-sample[disabled]:focus,
+fieldset[disabled] .btn-sample:focus,
+.btn-sample.disabled:active,
+.btn-sample[disabled]:active,
+fieldset[disabled] .btn-sample:active,
+.btn-sample.disabled.active,
+.btn-sample[disabled].active,
+fieldset[disabled] .btn-sample.active {
+  background-color: #43485E;
+  border-color: #E4E3E8;
+}
+
+.btn-sample .badge {
+  color: #43485E;
+  background-color: #FAF0F0;
+}

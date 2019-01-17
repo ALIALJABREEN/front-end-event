@@ -1,0 +1,42 @@
+<app-nav-bar></app-nav-bar>
+<script src="event-detail.component.ts"></script>
+<div *ngIf="event">
+  <h2> Event Detail</h2>
+  <ul class="list-group">
+    <li class="list-group-item" > description :{{event.description}}</li>
+    <li class="list-group-item"> capacity :{{event.capacity}}</li>
+    <li class="list-group-item"> date :{{event.date}}</li>
+    <li class="list-group-item"> time :{{event.time}}</li>
+  </ul>
+  <button *ngIf="isUser()" type="submit" class="btn btn-success"style="margin-right: 5px" (click)="bookTicket(event.event_id)">book</button>
+  <div *ngIf="errorbook" style="color: red">{{errorbook}}</div>
+  <button *ngIf="isAdmin()" [hidden]="isAprove()" type="submit" class="btn btn-success"style="margin-right: 5px" (click)="aprroveEvent()">approve</button>
+  <button *ngIf="isAdmin()" [hidden]="!isAprove()" type="submit" class="btn btn-danger"style="margin-right: 5px" (click)="disaprroveEvent()">disapprove</button>
+  <button *ngIf="isAdmin()" type="submit" class="btn btn-sample"style="margin-right: 5px"  routerLink="/event">cancel</button>
+  <button *ngIf="isOrganizer()" type="submit" class="btn btn-sample"style="margin-right: 5px"  routerLink="/active-events">Back</button>
+  <button *ngIf="isUser()" type="submit" class="btn btn-sample"style="margin-right: 5px"  routerLink="/active-events">Cancel</button>
+
+
+<div>
+<h2>Comments:</h2>
+  <div>
+   <ul *ngFor="let comment of comments"class="alert" style="margin-right: 100px">
+      {{comment.comment}}
+  </ul>
+  </div>
+
+  <form [formGroup]="myReactiveForm">
+   <div class="form-group">
+     <input type="comment" class="form-control" id="inputComment" placeholder="Add Comment" name="comment" formControlName="comment">
+   </div>
+    <div *ngIf="myReactiveForm.controls.comment.invalid && myReactiveForm.controls.comment.dirty" style="color: red">
+      The time interval between each coment is 30 minutes
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="addComment()">send</button>
+    <div *ngIf="errorcomment"style="color: red">{{errorcomment}}</div>
+  </form>
+
+</div>
+</div>
+<div>
+</div>

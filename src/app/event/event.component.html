@@ -1,14 +1,12 @@
-<app-nav-bar></app-nav-bar>
-<div class="row">
-<div  class="col-md-6">
-  <h2>Event List </h2>
-  <ul *ngFor="let event of event$"class="alert"style="margin-right: 100px" (click)="getEvents(event)">
-    <li>
-      {{event.event_id}}- {{event.event_name}} - {{event.city}}
+<app-nav-bar></app-nav-bar> <br> <br>
+<div class="list-group-item-action">
+<div style="background:aliceblue">
+  <h2 style="align-items: center">Event List </h2>
+  <ul *ngFor="let event of event$"class="alert"style="margin-right:100px">
 
+      {{event.event_id}}- {{event.event_name}} - {{event.city}}
       <button [routerLink]="['/event/',event.event_id]" class="btn btn-sample "style="float:right;"  (click)="getEvent(event)">detail</button>
   </ul>
 </div>
-
-
 </div>
+

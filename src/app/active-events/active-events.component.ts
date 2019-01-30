@@ -11,15 +11,14 @@ import {Events} from '../event/event.model';
 })
 export class ActiveEventsComponent implements OnInit {
   event$: Events[];
-  currentEvent: Event;
   user_id:number;
+  searchTerm: string;
   constructor(private route: ActivatedRoute, private eventService: EventService,private auth:AuthenticationService) { }
 
   ngOnInit() {
     this.user_id=this.auth.getUserId();
     this.activeEvents();
   }
-
   activeEvents() {
     this.eventService.activeEvents().subscribe(
       eventData => {
@@ -28,9 +27,5 @@ export class ActiveEventsComponent implements OnInit {
       err => console.log(err),
       () => console.log('Getting Active Events complete...')
     );
-
-  }
-  getEvent(event:Events){
-    this.eventService.getEvent(event.event_id);
   }
 }

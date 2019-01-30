@@ -26,6 +26,7 @@ import { EventsTicketComponent } from './events-ticket/events-ticket.component';
 import { NonactiveComponent } from './nonactive-events/nonactive.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import {EventFilterPipe} from './event/event-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     EventsTicketComponent,
     NonactiveComponent,
     UserProfileComponent,
+    EventFilterPipe,
     NavBarComponent
   ],
   imports: [

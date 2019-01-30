@@ -15,7 +15,6 @@ export class EditEventComponent implements OnInit {
    myForm: FormGroup;
    event: Events
   constructor(private formBuilder:FormBuilder,private eventService:EventService,private route: ActivatedRoute) { }
-
   ngOnInit() {
       this.route.params.subscribe((value: any) =>{
       this.event_id = value.event_id;
@@ -24,7 +23,6 @@ export class EditEventComponent implements OnInit {
       this.event = value;
       this.myForm.patchValue(this.event as any);
     });
-
     this.myForm= this.formBuilder.group({
       event_name:['',Validators.required],
       city:['',Validators.required],
@@ -32,10 +30,8 @@ export class EditEventComponent implements OnInit {
       time:['',Validators.required],
       date:['',Validators.required],
       capacity:['',Validators.required]
-
     });
   }
-
   onSubmit(){
     this.eventService.ubdateEvent(this.event_id,this.myForm).subscribe(res =>{
       if (res!==null && res !==undefined){
@@ -52,5 +48,4 @@ export class EditEventComponent implements OnInit {
     },(error) =>console.log(error),() =>{})
     alert()
   }
-
 }

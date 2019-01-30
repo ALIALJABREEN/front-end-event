@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {subscriptionLogsToBeFn} from 'rxjs/internal/testing/TestScheduler';
 import {Subscription} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
 import {EventService} from '../event/event.service';
@@ -11,9 +10,10 @@ import {Comments} from '../event/comment.model';
 
 @Component({
   selector: 'app-event-detail',
-  templateUrl: './event-detail.component.html'})
+  templateUrl: './event-detail.component.html',
+  styleUrls:['./event-detail.component.css']
+})
 export class EventDetailComponent implements OnInit {
-
   event: Events;
   event_id:number;
   user_id:number;
@@ -24,7 +24,7 @@ export class EventDetailComponent implements OnInit {
   errorbook;
   errorcomment;
 
-  constructor(private route:ActivatedRoute ,private eventService: EventService,private auth:AuthenticationService,private  router: Router,private formBuilder: FormBuilder) { }
+  constructor(private route:ActivatedRoute ,private eventService:EventService,private auth:AuthenticationService,private router:Router,private formBuilder:FormBuilder) { }
 
   ngOnInit() {
     this.user_id = this.auth.getUserId();
@@ -41,16 +41,14 @@ export class EventDetailComponent implements OnInit {
     this.getComments();
 
   }
-
-
   aprroveEvent(){
     this.eventService.approveEvents(this.event_id).subscribe(
-      ticketData => {
-        this.event= ticketData;
+      approveData => {
+        this.event= approveData;
         this.router.navigate(['/active-events'])
       },
       err => console.log(err),
-      () => console.log('Getting tickets complete...')
+      () => console.log('Getting approve events')
     );
   }
 
@@ -58,23 +56,23 @@ export class EventDetailComponent implements OnInit {
 
   disaprroveEvent(){
     this.eventService.disapproveEvent(this.event_id).subscribe(
-      ticketData => {
-        this.event= ticketData;
+      disaprroveData => {
+        this.event= disaprroveData;
         this.router.navigate(['/nonactive-events'])
       },
       err => console.log(err),
-      () => console.log('Getting tickets complete...')
+      () => console.log('Getting disapprove events')
     );
   }
 
     bookTicket(eventid:number){
     this.eventService.bookTicket(this.user_id,eventid).subscribe(
-      ticketData => {
-        this.tickets = ticketData;
+      bookTicketData => {
+        this.tickets = bookTicketData;
         this.router.navigate(['/ticket'])
       },
       error => this.errorbook = error.error.message,
-      () => console.log('Getting tickets complete...')
+      () => console.log('Getting booktickets complete...')
     );
   }
 

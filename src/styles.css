@@ -1,19 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 @import "assets/forms.css";
 @import "~bootstrap/dist/css/bootstrap.min.css";
+
 .btn-sample {
   color: #FAF0F0;
-  background-color: #43485E;
+  background-color: #8e44ad;
   border-color: #E4E3E8;
 }
-
 .btn-sample:hover,
 .btn-sample:focus,
 .btn-sample:active,
 .btn-sample.active,
 .open .dropdown-toggle.btn-sample {
   color: #FAF0F0;
-  background-color: #51465E;
+  background-color: #9b59b6;
   border-color: #E4E3E8;
 }
 

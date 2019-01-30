@@ -26,7 +26,7 @@ export class EventService {
     return this.http.get<Events>(`api/event/` + `${event_id}`);
   }
 
-  addEvent(orgenizerid:number,a: Events): Observable<Event> {
+  addEvent(orgenizerid:number,a:Events): Observable<Event> {
     return this.http.post<Event>(`api/event/create/` + `${orgenizerid}`, JSON.stringify(a), API_ARGS);
   }
 

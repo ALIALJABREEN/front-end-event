@@ -3,32 +3,34 @@
   <div  class="col-md-6">
     <h2>My Tickets </h2>
     <ul  *ngFor="let ticket of tickets"class="alert">
-
       <li class="list-group-item"> #{{ticket.ticket_id}}</li>
-      <li class="list-group-item"> Event name:{{ticket.event_name}}</li>
-      <li class="list-group-item"> Date :{{ticket.ticketdate}}</li>
-      <li class="list-group-item"> Time :{{ticket.tickettime}}</li>
+      <li class="list-group-item"> Event name: {{ticket.event_name}}</li>
+      <li class="list-group-item"> Date : {{ticket.ticketdate}}</li>
+      <li class="list-group-item"> Time :  {{ticket.tickettime}}</li>
       <button class="btn btn-sample" (click)="deleteTicket(ticket.ticket_id)">Delete</button>
     </ul>
-
   </div>
 </div>
 
+    <div class="col-md-6">
     <h2>My Tickets Attended </h2>
-    <ul  *ngFor="let ticket of tickets$"class="alert">
-
+    <ul *ngFor="let ticket of tickets$"class="alert">
       <li class="list-group-item"> #{{ticket.ticket_id}}</li>
-      <li class="list-group-item"> Event name:{{ticket.event_name}}</li>
+      <li class="list-group-item"> Event name : {{ticket.event_name}}</li>
+
+
+<br>
 
       <div *ngIf="!isRated(ticket.rated)">
         <form [formGroup]="myReactiveForm">
+          <h5> comment</h5>
           <div class="form-group">
             <input type="comments" class="form-control" id="inputComment" placeholder="Add Comment" name="comments" formControlName="comments">
           </div>
           <div class="form-group" style="font-weight: bold">
             <label for="selectRate">Rate</label>
             <select class="form-control" id="selectRate" formControlName="rate" name="rate">
-              <option value="" disabled>Select rate</option>
+              <option value=""disabled>Select rate</option>
               <option value=1>1</option>
               <option value=2>2</option>
               <option value=3>3</option>
@@ -39,6 +41,5 @@
           <button type="submit" class="btn btn-sample" (click)="addRate(ticket.ticket_id)">send</button>
         </form>
       </div>
-
     </ul>
-
+    </div>

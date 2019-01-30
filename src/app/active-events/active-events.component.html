@@ -1,14 +1,60 @@
-<app-nav-bar></app-nav-bar>
-<div class="row">
-  <div  class="col-md-6">
-    <h2> Active Events </h2>
-    <ul  *ngFor="let event of event$"class="alert" (click)="activeEvents(event)">
-      <li>
-        {{event.event_id}}- {{event.event_name}} - {{event.city}}
 
-        <button [routerLink]="['/event/',event.event_id]" class="btn btn-sample " style="float:right;" routerLink="/active-events">detail</button>
-    </ul>
+<!--<app-nav-bar></app-nav-bar> <br> <br>-->
+<!--<div class="row">-->
+<!--<div  class="col-md-6">-->
+<!--<h2> Active Events </h2>-->
+<!--<ul  *ngFor="let event of event$"class="alert" (click)="activeEvents(event)">-->
+<!--<li>-->
+<!--{{event.event_id}}- {{event.event_name}} - {{event.city}}-->
+<!--<button [routerLink]="['/event/',event.event_id]" class="btn btn-sample " style="float:right;" routerLink="/active-events">detail</button>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->
+
+
+
+<!--<app-nav-bar></app-nav-bar> <br>-->
+<!--<div class="form-group">-->
+   <!--<input type="text" class="ml-auto" placeholder="search by name" [(ngModel)]="searchTerm"/>-->
+<!--</div>-->
+<!--<div *ngFor="let  event of event$ | eventFilter:searchTerm">-->
+  <!--<ul>-->
+    <!--<li>-->
+      <!--{{event.event_id}}- {{event.event_name}} - {{event.city}}-->
+    <!--</li>-->
+  <!--</ul>-->
+  <!--<div (click)="activeEvents(event)" class="pointerCursor">-->
+  <!--</div>-->
+<!--</div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+<app-nav-bar></app-nav-bar> <br>
+<div class="container">
+  <h1>Active Events</h1>
+  <div class="form-group">
+    <input type="text" class="ml-auto" placeholder="search by name" [(ngModel)]="searchTerm"/>
   </div>
-
-
+  <div class="row">
+    <div class="col-lg-6 col-sm-6 portfolio-item" *ngFor="let event of event$ | eventFilter:searchTerm"(click)="activeEvents(event)">
+      <div class="card h-100">
+        <a href="/active-events"><img class="card-img-top" src="https://www.milton.ca/en/live/resources/Events.jpg" alt=""></a>
+        <div class="card-body">
+          <h4 class="card-title">
+         <a (click)="activeEvents(event)"[routerLink]="['/event/',event.event_id]">{{event.event_name}}</a>
+          </h4>
+          <p class="card-text">{{event.date}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

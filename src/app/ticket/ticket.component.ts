@@ -72,9 +72,6 @@ export class TicketComponent implements OnInit {
     if (rated === true){
       return true;
     }
-
-
    }
-
 }
 

@@ -1,11 +1,15 @@
-.count{
-
-}
-.form-group{
+.home{
   height: 1%;
   text-align: center;
   padding-right:200px;
   padding-left: 200px;
   margin: 25px;
   background-color: white;
+  background-size: cover;
+
+}
+.form-group{
+  text-align: left;
+
+
 }

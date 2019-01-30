@@ -10,12 +10,13 @@ import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './register.component.html'
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-    myReactiveForm: FormGroup;
+    myReactiveForm:FormGroup;
     erro;
-  constructor(private formBuilder: FormBuilder, private userService: UserService,private  rout:Router) { }
+  constructor(private formBuilder:FormBuilder,private userService:UserService,private rout:Router) { }
 
   ngOnInit() {
     this.myReactiveForm = this.formBuilder.group({

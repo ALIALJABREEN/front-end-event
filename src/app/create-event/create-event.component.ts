@@ -12,13 +12,10 @@ import {AuthenticationService} from '../authentication/authentication.service';
 })
 export class CreateEventComponent implements OnInit {
   myForm:FormGroup;
-  event$: Observable<Events>;
-  orgenizerid: number;
+  orgenizerid:number;
 
   constructor(private formBuilder:FormBuilder,private eventService:EventService,private auth:AuthenticationService) { }
-
   ngOnInit() {
-
     this.myForm= this.formBuilder.group({
       event_name:['',Validators.required],
       city:['',Validators.required],
@@ -26,10 +23,8 @@ export class CreateEventComponent implements OnInit {
       time:['',Validators.required],
       date:['',Validators.required],
       capacity:['',Validators.required]
-
     });
     this.orgenizerid = this.auth.getUserId();
-
   }
     onSubmit(){
     this.eventService.addEvent(this.orgenizerid,this.myForm.value).subscribe(res =>{
@@ -37,8 +32,6 @@ export class CreateEventComponent implements OnInit {
         console.log(res);
       }
     },(error) =>console.log(error),() =>{});
-
   }
-
 }
 

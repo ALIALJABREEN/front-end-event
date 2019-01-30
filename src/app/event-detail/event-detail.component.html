@@ -1,12 +1,14 @@
-<app-nav-bar></app-nav-bar>
+<app-nav-bar></app-nav-bar><br> <br>
 <script src="event-detail.component.ts"></script>
 <div *ngIf="event">
   <h2> Event Detail</h2>
-  <ul class="list-group">
-    <li class="list-group-item" > description :{{event.description}}</li>
-    <li class="list-group-item"> capacity :{{event.capacity}}</li>
-    <li class="list-group-item"> date :{{event.date}}</li>
-    <li class="list-group-item"> time :{{event.time}}</li>
+  <br>
+  <h1 class="my-4">{{event.event_name}}</h1>
+  <ul class="col-md-6">
+    <li class="list-group-item"> description:   {{event.description}}</li>
+    <li class="list-group-item"> capacity :     {{event.capacity}}</li>
+    <li class="list-group-item"> date :         {{event.date}}</li>
+    <li class="list-group-item"> time :         {{event.time}}</li>
   </ul>
   <button *ngIf="isUser()" type="submit" class="btn btn-success"style="margin-right: 5px" (click)="bookTicket(event.event_id)">book</button>
   <div *ngIf="errorbook" style="color: red">{{errorbook}}</div>
@@ -16,8 +18,8 @@
   <button *ngIf="isOrganizer()" type="submit" class="btn btn-sample"style="margin-right: 5px"  routerLink="/active-events">Back</button>
   <button *ngIf="isUser()" type="submit" class="btn btn-sample"style="margin-right: 5px"  routerLink="/active-events">Cancel</button>
 
-
 <div>
+  <br>
 <h2>Comments:</h2>
   <div>
    <ul *ngFor="let comment of comments"class="alert" style="margin-right: 100px">

@@ -6,8 +6,8 @@ import {AuthenticationService} from './authentication/authentication.service';
   template: `
    
 <div class="container-fluid">
-    <router-outlet></router-outlet>
-    <div class="text-sm-center"> © 2018 Ali</div>
+    <router-outlet></router-outlet><br><br>
+    <div class="text-sm-center"> © 2019 Ali Alshammari</div>
     </div>
     `
 })

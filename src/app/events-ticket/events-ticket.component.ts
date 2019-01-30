@@ -11,22 +11,14 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class EventsTicketComponent implements OnInit {
   tickets: Tickets[];
   event_id :number;
-
-
-
   constructor(private eventService: EventService,private route:ActivatedRoute) {
   }
-
   ngOnInit() {
     this.route.params.subscribe((value:any) => {
       this.event_id=value.event_id;
-
     })
-
     this.getEventsTicket();
-
   }
-
    getEventsTicket() {
     this.eventService.eventsTicket(this.event_id).subscribe(
       tickData => {
@@ -42,11 +34,9 @@ export class EventsTicketComponent implements OnInit {
       },
       err => console.log(err),
       () => console.log('asdfg')
-
     )
     location.reload()
   }
-
   isAttend(attend:boolean){
     if (attend === true){
       return true;

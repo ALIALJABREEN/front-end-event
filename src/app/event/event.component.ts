@@ -9,8 +9,6 @@ import {AuthenticationService} from '../authentication/authentication.service';
   templateUrl: './event.component.html'})
 export class EventComponent implements OnInit {
   event$: Events[];
-  currentEvent: Event;
-
   constructor(private route: ActivatedRoute, private eventService: EventService,private auth:AuthenticationService) { }
 
   ngOnInit() {

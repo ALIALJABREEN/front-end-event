@@ -34,7 +34,7 @@ const routes: Routes = [
   {path: 'event/:event_id', component:EventDetailComponent},
   {path: 'edit_event/:event_id', component:EditEventComponent},
   {path: 'events_ticket/:event_id', component:EventsTicketComponent},
-  {path: 'user/:users_id', component: UserEditComponent},
+  {path: 'user/:usersid', component: UserEditComponent},
   {path: 'user-profile', component: UserProfileComponent}
 
 ];

@@ -9,13 +9,12 @@ import {UserService} from './user.service';
   templateUrl: './user.component.html'
 })
 export class UserComponent implements OnInit {
-  users$: User[];
-  currentUser: User;
+  users$:User[];
+  currentUser:User;
   users_id:number;
 
   constructor(private route: ActivatedRoute, private userService: UserService) {
   }
-
   ngOnInit() {
     this.getUsers();
   }
@@ -32,7 +31,5 @@ export class UserComponent implements OnInit {
   }
   getUser(user){
     this.currentUser = user;
-
   }
-
 }

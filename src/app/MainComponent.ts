@@ -17,7 +17,6 @@ export class MainComponent implements OnInit {
 
   }
 
-
   isAdmin() {
     if (this.auth.getRole()==='ROLE_ADMIN')
       return true;

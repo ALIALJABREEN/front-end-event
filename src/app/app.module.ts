@@ -58,7 +58,11 @@ import {EventFilterPipe} from './event/event-filter.pipe';
     HttpClientModule,
 
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass:BasicAuthInterceptor,multi:true},
+    {provide: HTTP_INTERCEPTORS, useClass:ErrorInterceptor,multi:true},
+
+  ],
   bootstrap: [MainComponent]
 })
 export class AppModule { }

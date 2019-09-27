@@ -19,6 +19,8 @@ export class EventsTicketComponent implements OnInit {
     })
     this.getEventsTicket();
   }
+
+
    getEventsTicket() {
     this.eventService.eventsTicket(this.event_id).subscribe(
       tickData => {

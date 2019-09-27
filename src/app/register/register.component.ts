@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
         Validators.maxLength(25),Validators.pattern(/[^\s]+/), Validators.pattern(/^[A-Za-z0-9]{2,25}/)])],
 
       password: ['', Validators.compose([Validators.required, Validators.minLength(8),
-      Validators.maxLength(20),Validators.pattern(/[^\s]+/), Validators.pattern(/^[A-Za-z0-9]{8,25}/)])],
+      Validators.maxLength(20),Validators.pattern(/[^\s]+/)])],
 
 
       firstName:['', Validators.compose([Validators.required, Validators.minLength(2),

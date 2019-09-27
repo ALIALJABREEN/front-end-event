@@ -62,13 +62,9 @@
                id="mobileNumber" placeholder="Enter your mobile Number" name="mobileNumber">
       </div>
 
-
       <button type="submit" class="btn btn-sample"style="margin-right: 5px" (click)="onSubmit()">Submit</button>
-
       <button type="submit" class="btn btn-danger"style="margin-right: 5px" (click)="deleteUser()">delete</button>
-
       <button *ngIf="isAdmin()" type="submit" class="btn btn-sample"style="margin-right: 5px"  routerLink="/users">cancel</button>
-
       <button *ngIf="isOrgenizer()||isUser()" type="submit" class="btn btn-sample"style="margin-right: 5px"  routerLink="/user-profile">cancel</button>
 
     </form>

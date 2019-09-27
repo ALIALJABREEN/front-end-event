@@ -16,10 +16,10 @@ export class UserEditComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private userService: UserService ,private route: ActivatedRoute,private auth:AuthenticationService) { }
 
   ngOnInit() {
-    this.route.params.subscribe((value: any) =>{
-      this.users_id = value.users_id;
+      this.route.params.subscribe((value: any) =>{
+      this.users_id = value.usersid;
       });
-    this.userService.getUser(this.users_id).subscribe(value => {
+      this.userService.getUser(this.users_id).subscribe(value => {
       this.user = value;
       this.myReactiveForm.patchValue(this.user as any);
     });
@@ -46,7 +46,7 @@ export class UserEditComponent implements OnInit {
 
 
   }
-  deleteUser(){
+   deleteUser(){
     this.userService.deleteUser(this.users_id).subscribe(res =>{
       if (res!==null && res !==undefined){
         console.log(res);

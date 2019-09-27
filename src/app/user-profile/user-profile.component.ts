@@ -10,10 +10,11 @@ import {AuthenticationService} from '../authentication/authentication.service';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  users_id: number;
-  user: User;
+   users_id: number;
+   user: User;
 
-  constructor(private userService: UserService,private auth:AuthenticationService) { }
+  constructor(private userService: UserService,private auth:AuthenticationService) {
+  }
 
   ngOnInit() {
     this.users_id=this.auth.getUserId();

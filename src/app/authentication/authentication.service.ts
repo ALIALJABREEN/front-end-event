@@ -5,24 +5,21 @@ import {map} from 'rxjs/operators';
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
   user$:string;
-  usersid: number;
+  users_id: number;
   constructor(private http: HttpClient) { }
 
-  login(userName: string, password: string) {
-    let headers=new HttpHeaders();
-    headers=headers.append('Authorization','Basic '+ btoa(`${userName}:${password}`));
-
-    return this.http.get<any> ( '/userData', { headers: headers  })
+   login(userName: string, password: string) {
+    return this.http.post<any> ( '/userData', { userName, password  })
       .pipe(map(user => {
         // login successful if there's a user in the response
         if (user) {
           // store user details and basic auth credentials in local storage
           // to keep user logged in between page refreshes
+          user.authdata = btoa(`${userName}:${password}`);
           localStorage.setItem('currentUser', JSON.stringify(user));
-         user = JSON.parse(localStorage.getItem('currentUser'));
-         this.user$=user.roleName;
-         this.usersid=user.users_id;
-
+          user = JSON.parse(localStorage.getItem('currentUser'));
+         // this.user$=user.roleName;
+         // this.users_id=user.usersid;
         }
         return user;
       }));
@@ -33,18 +30,16 @@ export class AuthenticationService {
     localStorage.removeItem('currentUser');
   }
 
-
    getRole(){
     if (JSON.parse(localStorage.getItem('currentUser')))
       this.user$=JSON.parse(localStorage.getItem('currentUser')).roleName;
       return this.user$;
-
-
   }
+
    getUserId(){
     if (JSON.parse(localStorage.getItem('currentUser')))
-      this.usersid=JSON.parse(localStorage.getItem('currentUser')).users_id;
-    return this.usersid;
+      this.users_id=JSON.parse(localStorage.getItem('currentUser')).users_id;
+    return this.users_id;
   }
 
   isAuthenticated(){
